@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セナリ学院 - AI学習オンラインスクール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <div class="logo">セナリ学院</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="courses.html">コース</a></li>
+                    <li><a href="#pricing">料金</a></li>
+                    <li><a href="#faculty">講師紹介</a></li>
+                    <li><a href="#" class="cta-button">無料体験申込</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>セナリ学院</h1>
+            <p>2024年春開講予定</p>
+            <a href="#" class="cta-button">無料体験に申し込む</a>
+        </div>
+    </section>
+
+    <section class="results-showcase">
+        <div class="container">
+            <div class="results-slider">
+                <div class="result-card">
+                    <div>提案資料作成</div>
+                    <div class="time-comparison">
+                        <span>7</span>日
+                        <span class="arrow">▶▶</span>
+                        <span>2</span>日で資料作成
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="木村優也">
+                    <div class="student-info">
+                        <p>木村優也（営業/サービス）</p>
+                        <div class="course-tag">営業コース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>研修コンテンツ設計</div>
+                    <div class="time-comparison">
+                        <span>4</span>時間
+                        <span class="arrow">▶▶</span>
+                        <span>30</span>分で研修設計
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="黒田魁斗">
+                    <div class="student-info">
+                        <p>黒田魁斗（人事/インフラ）</p>
+                        <div class="course-tag">基礎マスターコース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>KPI設計</div>
+                    <div class="time-comparison">
+                        <span>8</span>時間
+                        <span class="arrow">▶▶</span>
+                        <span>30</span>分で目標設計
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="山口真吾">
+                    <div class="student-info">
+                        <p>山口真吾（マーケティング/グローバルEC）</p>
+                        <div class="course-tag">基礎マスター＋マーケティングコース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>データ分析レポート</div>
+                    <div class="time-comparison">
+                        <span>12</span>時間
+                        <span class="arrow">▶▶</span>
+                        <span>45</span>分でレポート作成
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="田中美咲">
+                    <div class="student-info">
+                        <p>田中美咲（データアナリスト）</p>
+                        <div class="course-tag">データ分析コース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>AI活用戦略立案</div>
+                    <div class="time-comparison">
+                        <span>10</span>日
+                        <span class="arrow">▶▶</span>
+                        <span>3</span>日で戦略策定
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="佐藤健一">
+                    <div class="student-info">
+                        <p>佐藤健一（経営企画）</p>
+                        <div class="course-tag">AI戦略コース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>業務自動化構築</div>
+                    <div class="time-comparison">
+                        <span>15</span>日
+                        <span class="arrow">▶▶</span>
+                        <span>4</span>日でシステム構築
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="中村太郎">
+                    <div class="student-info">
+                        <p>中村太郎（システム開発）</p>
+                        <div class="course-tag">RPA開発コース受講</div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div>マーケティング分析</div>
+                    <div class="time-comparison">
+                        <span>6</span>時間
+                        <span class="arrow">▶▶</span>
+                        <span>20</span>分で分析完了
+                    </div>
+                    <img src="https://placehold.co/300x180" alt="鈴木花子">
+                    <div class="student-info">
+                        <p>鈴木花子（マーケティング）</p>
+                        <div class="course-tag">デジタルマーケティングコース受講</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <button class="slider-button" id="prev-btn">←</button>
+                <div class="slider-dots">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+                <div class="slider-page-count">2 / 7</div>
+                <button class="slider-button" id="next-btn">→</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <h2 class="section-title">セナリ学院とは</h2>
+            <p>セナリ学院は、生成AIを活用して"出会い・作り・発表する"体験を提供するオンラインスクールです。単なる知識習得の場ではなく、同じ志を持つ仲間との新たな出会いからプロジェクトが生まれ、それを実際に手を動かしてアウトプットしていきます。4ヶ月を1つの学習サイクルとし、最終月には成果をお互いに披露し合う『AI文化祭』を開催。学ぶだけで終わらず、スキルを使って形を作り、最後に発表まで行うので、達成感と楽しさを存分に味わえる"新しい学校"のような場を目指しています。</p>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">本校の特徴</h2>
+            <div class="benefit-grid">
+                <div class="benefit-card" data-category="meet">
+                    <div class="benefit-image">
+                        <div class="number-icon">1</div>
+                        <div class="text-icon">出会う</div>
+                    </div>
+                    <h3 class="benefit-title">多彩な専門家と仲間に出会える</h3>
+                    <p>大学教授や生成AIのプロフェッショナル、トップクリエイターから初心者まで、多様なバックグラウンドを持つメンバーが集います。教わるだけでなく、一緒にプロジェクトを進めることで新たな可能性が生まれる"出会いの場"を提供します。</p>
+                </div>
+                
+                <div class="benefit-card" data-category="create">
+                    <div class="benefit-image">
+                        <div class="number-icon">2</div>
+                        <div class="text-icon">つくる</div>
+                    </div>
+                    <h3 class="benefit-title">学んだ知識を形にする</h3>
+                    <p>ただ技術を習得するだけでなく、実際にAIを使ってプロトタイプや作品を"作る"ことに重点を置いています。日々のオンライン学習や相談会を活用しながら、初心者でも安心して手を動かし、自分だけのプロジェクトを生み出せます。</p>
+                </div>
+                
+                <div class="benefit-card" data-category="present">
+                    <div class="benefit-image">
+                        <div class="number-icon">3</div>
+                        <div class="text-icon">発表する</div>
+                    </div>
+                    <h3 class="benefit-title">成果を見せ合い、次のステップへ</h3>
+                    <p>4ヶ月を1サイクルとし、最終月には成果物を披露し合う『AI文化祭』を開催。論文やアプリ、映像作品など、何を作るかは自由です。完成品を発表することで得られる達成感やフィードバックは、次のチャレンジへのモチベーションにつながります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses">
+        <div class="container">
+            <h2 class="section-title">コースの特徴</h2>
+            <div class="course-grid">
+                <!-- AIライティング＆リサーチコース -->
+                <div class="course-card" data-category="writing">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AIライティング＆リサーチコース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AIライティング＆リサーチコース</h3>
+                        <p>AIと一緒に文章力・情報収集力を底上げするコース。初めて書く人から文章マニアまで、誰でも"もっと表現したい"を形にできます。</p>
+                        <ul class="course-features">
+                            <li>文書作成の基礎から応用まで段階的に学べる</li>
+                            <li>専門家との対話型ワークショップで疑問を解消</li>
+                            <li>レポート・エッセイ・会社案内など多様な実践課題</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#文章</span>
+                            <span>#リサーチ</span>
+                            <span>#執筆</span>
+                            <span>#じっくり学ぶ</span>
+                            <span>#初心者歓迎</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 3ヶ月</span>
+                            <span class="level">難易度: 初級</span>
+                        </div>
+                        <a href="courses.html#writing" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AIデザイン＆クリエイティブコース -->
+                <div class="course-card" data-category="design">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AIデザイン＆クリエイティブコース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AIデザイン＆クリエイティブコース</h3>
+                        <p>画像生成AIやツールを駆使し、ビジュアル表現を楽しく学べる入門コース。初めてデザインする人から絵が好きな人まで、AIと協力してセンスを形に。</p>
+                        <ul class="course-features">
+                            <li>ポスター・ロゴ・絵本など多彩な制作が可能</li>
+                            <li>プロのデザイナーからのフィードバックを受けられる</li>
+                            <li>コンセプトづくりやキャッチコピーのコツも習得</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#デザイン</span>
+                            <span>#ビジュアル</span>
+                            <span>#クリエイティブ</span>
+                            <span>#発想力重視</span>
+                            <span>#初心者OK</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 3ヶ月</span>
+                            <span class="level">難易度: 初級</span>
+                        </div>
+                        <a href="courses.html#design" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AI企画書＆プレゼンテーションコース -->
+                <div class="course-card" data-category="presentation">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AI企画書＆プレゼンテーションコース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AI企画書＆プレゼンテーションコース</h3>
+                        <p>アイデアを"伝わる"企画・プレゼンへと育てる実践コース。初めてのプレゼンでも、アイデア満載の人でも、AIが構成をサポートして魅力を伝え切る。</p>
+                        <ul class="course-features">
+                            <li>リサーチ・企画書・発表スキルを一括で学ぶ</li>
+                            <li>AIでスライドや構成を効率化し、内容を磨ける</li>
+                            <li>番組形式のレビューでプレゼン力を徹底強化</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#企画</span>
+                            <span>#プレゼン</span>
+                            <span>#アイデア</span>
+                            <span>#発信力</span>
+                            <span>#リーダー気質</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 3ヶ月</span>
+                            <span class="level">難易度: 中級</span>
+                        </div>
+                        <a href="courses.html#presentation" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AI映像＆音楽制作コース -->
+                <div class="course-card" data-category="media">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AI映像＆音楽制作コース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AI映像＆音楽制作コース</h3>
+                        <p>ショートムービーや音楽制作をAIとともに楽しむ、メディア表現入門コース。映像初心者からバンド経験者まで、AIが生み出す映像や音楽素材を自由に操れます。</p>
+                        <ul class="course-features">
+                            <li>映像生成AIや音楽制作AIを実践的に活用</li>
+                            <li>チーム制作やライブ上映などアウトプットが多彩</li>
+                            <li>プロのクリエイターから作品へのアドバイスを獲得</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#映像</span>
+                            <span>#音楽</span>
+                            <span>#メディア</span>
+                            <span>#表現好き</span>
+                            <span>#チーム制作</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 4ヶ月</span>
+                            <span class="level">難易度: 中級</span>
+                        </div>
+                        <a href="courses.html#media" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AI教育＆研修コース -->
+                <div class="course-card" data-category="education">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AI教育＆研修コース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AI教育＆研修コース</h3>
+                        <p>教師・研修担当者向けに、AIを用いた授業・教材開発を学ぶコース。教育のプロから新米の先生まで、AIで学びを深める方法が見つかります。</p>
+                        <ul class="course-features">
+                            <li>AIで教材・テスト・解説動画を効率的に作成</li>
+                            <li>学習者の理解を深める設計や評価ノウハウを習得</li>
+                            <li>事例共有や座談会でリアルな実践知を交換</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#教育</span>
+                            <span>#研修</span>
+                            <span>#授業</span>
+                            <span>#先生必見</span>
+                            <span>#学習支援</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 3ヶ月</span>
+                            <span class="level">難易度: 中級</span>
+                        </div>
+                        <a href="courses.html#education" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AIアプリ＆サービス開発コース -->
+                <div class="course-card" data-category="development">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AIアプリ＆サービス開発コース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AIアプリ＆サービス開発コース</h3>
+                        <p>Teleport Studioを使って、初心者でも簡単にアプリ開発を体験できるコース。プログラミング未経験者からエンジニア志望まで、AIがコードをサポートし発想を即形に。</p>
+                        <ul class="course-features">
+                            <li>生成AIのコード補助で素早くプロトタイプを制作</li>
+                            <li>UI/UXから機能検証まで、サービス構築を総合的に学ぶ</li>
+                            <li>チーム開発や作品展示を通じてフィードバックを得られる</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#アプリ</span>
+                            <span>#サービス</span>
+                            <span>#開発</span>
+                            <span>#プログラミング</span>
+                            <span>#初心者OK</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 4ヶ月</span>
+                            <span class="level">難易度: 初級〜中級</span>
+                        </div>
+                        <a href="courses.html#development" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- AIトレンド＆業界動向リサーチコース -->
+                <div class="course-card" data-category="trend">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="AIトレンド＆業界動向リサーチコース">
+                    </div>
+                    <div class="course-content">
+                        <h3>AIトレンド＆業界動向リサーチコース</h3>
+                        <p>最新のAI技術やリリース情報を追いかけ、企画や戦略に活かすコース。ITニュース好きから新ビジネスを考える人まで、AI業界の"今"を吸収してスキルアップ。</p>
+                        <ul class="course-features">
+                            <li>毎週更新されるAIニュースをキャッチアップし整理</li>
+                            <li>国内外の事例やスタートアップ動向を分析</li>
+                            <li>ラジオやZINE形式で成果を発信し、ビジネスアイデアにつなぐ</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#トレンド</span>
+                            <span>#業界動向</span>
+                            <span>#AIニュース</span>
+                            <span>#情報収集</span>
+                            <span>#プロデューサー向け</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 3ヶ月</span>
+                            <span class="level">難易度: 中級</span>
+                        </div>
+                        <a href="courses.html#trend" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- テレポート開発参加コース -->
+                <div class="course-card" data-category="teleport">
+                    <div class="course-image">
+                        <img src="https://placehold.co/400x250" alt="テレポート開発参加コース">
+                    </div>
+                    <div class="course-content">
+                        <h3>テレポート開発参加コース</h3>
+                        <p>学習プラットフォーム「テレポート」の改善や新機能提案に参加できるコース。サービスづくりに携わりたい人からアイデア豊富な人まで、開発の舞台裏を体験。</p>
+                        <ul class="course-features">
+                            <li>開発チームと連携して、UIや機能の改良を考案</li>
+                            <li>モックアップやプロトタイプを作り、実装をサポート</li>
+                            <li>利用者と開発者の視点を行き来し、サービス運営を学ぶ</li>
+                        </ul>
+                        <div class="course-tags">
+                            <span>#テレポート</span>
+                            <span>#開発</span>
+                            <span>#プラットフォーム</span>
+                            <span>#改善提案</span>
+                            <span>#協働</span>
+                        </div>
+                        <div class="course-meta">
+                            <span class="duration">期間: 6ヶ月</span>
+                            <span class="level">難易度: 中級〜上級</span>
+                        </div>
+                        <a href="courses.html#teleport" class="cta-button">詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">受講生の体験談</h2>
+            <p class="section-subtitle">やりたいことに出会い、理想の働き方を叶えたSHElikes受講生をご紹介</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://placehold.co/250x200" alt="受講生1">
+                        <span class="case-number">CASE 01</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-tag">社会人歴2ヶ月の主婦から</div>
+                        <div class="testimonial-tag">月収50万のフリーライターに</div>
+                        <p>飲食店の接客だったのですが、妊娠がきっかけで「働き方を変えたい」と思い、本の動めでSHElikesに入会。ライティング中心に、3ヶ月目には自社サイトにお仕事を獲得できました。その後も自分の強みに合うように、複数のスキルを学んだことで、ライターのお仕事だけでなく、編集や広報、カメラマンのお仕事もいただけるように。家庭と両立しながらフリーランスで働いています。</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://placehold.co/250x200" alt="受講生2">
+                        <span class="case-number">CASE 02</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-tag">未経験から副業でも活躍する</div>
+                        <div class="testimonial-tag">動画クリエイターに</div>
+                        <p>特別なスキルも持っていなかったので、このままで将来大丈夫なのかと漠然と不安を感じていました。入会当初はやりたいことがなかったですが、さまざまなコースをつまみ食いしていく中で、動画編集が好きだと気づきました。動画編集に注力し、お仕事を獲得できるように。今では本業と副業で動画編集のお仕事をしています。</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://placehold.co/250x200" alt="受講生3">
+                        <span class="case-number">CASE 03</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-tag">未経験から完全在宅の</div>
+                        <div class="testimonial-tag">フリーのWebデザイナーに</div>
+                        <p>一度会社を辞めて専業主婦になったのですが、もう一度復帰できる自信を失っていました。このままじゃいけないと思い、前職の時から気になっていたWebデザインの仕事に挑戦したくてSHElikesに入会。「1年後にはデザインの仕事で生活する」と決めて、集中的に勉強し、半年後にはお仕事獲得もできました。今は在宅でフリーランスデザイナーとして働いています。</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://placehold.co/250x200" alt="受講生4">
+                        <span class="case-number">CASE 04</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-tag">営業職から</div>
+                        <div class="testimonial-tag">月収2倍以上でマーケターに</div>
+                        <p>新卒時からマーケターに憧れがあり、スキルを身につけたい、一緒に頑張る仲間が欲しいと思いSHElikesに入会。SHElikesでみんなとこを、週3時間の副業時間で集中的に実践を積むことで、仕事でもある業務も増え成長を感じることで、マーケターとして転職できました。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="learning-process">
+        <div class="container">
+            <h2 class="section-title">学習の流れ</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>出会う</h3>
+                    <p>生成AIや各分野の専門家、そして一緒に学ぶ受講生との新しい出会いがスタート。興味のあるテーマや目標を明確にし、プロジェクトの方向性を探ります。</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>学ぶ・作り始める</h3>
+                    <p>オンデマンド教材やオンライン配信を活用しつつ、基本的なAI技術やプロジェクトの進め方を学びます。アイデアをプロトタイプとして"作り始める"ステップです。</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>さらに作る・ブラッシュアップ</h3>
+                    <p>プロジェクトを本格化し、試行錯誤を重ねながら完成度を高めていきます。専門家やメンターのフィードバックを取り入れ、より実践的な成果物へとブラッシュアップします。</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>発表する</h3>
+                    <p>いよいよ『AI文化祭』の時期。自分が作り上げたものを他の受講生や講師、外部の人にも披露します。発表を通じて得られる反応やつながりは、次のプロジェクトへの大きな原動力となります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-blocks">
+        <div class="container">
+            <h2 class="section-title">本格的エンジニアになるための学習特性</h2>
+            <div class="feature-grid">
+                <div class="feature-block">
+                    <div class="feature-block-title">基礎コース</div>
+                    <p>AIの基礎概念やプログラミング言語（Python）の基礎から学び、AIツールの使い方まで幅広く習得。</p>
+                    <ul>
+                        <li>Pythonプログラミング</li>
+                        <li>機械学習の基礎</li>
+                        <li>AI活用事例の学習</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-block-title">応用コース</div>
+                    <p>深層学習やAIモデルの実装など、より専門的な知識とスキルを習得。実際のビジネス課題解決に取り組む。</p>
+                    <ul>
+                        <li>ディープラーニング</li>
+                        <li>自然言語処理</li>
+                        <li>コンピュータビジョン</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-block-title">実践コース</div>
+                    <p>実際のプロジェクトを通じてAIシステムの設計から実装、評価までの一連のプロセスを経験。ポートフォリオ作成。</p>
+                    <ul>
+                        <li>AIプロジェクト設計</li>
+                        <li>システム実装と評価</li>
+                        <li>ポートフォリオ制作</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-block-title">プロフェッショナルコース</div>
+                    <p>AIエンジニアとしてのキャリアを確立するための専門スキルと知識を習得。最新技術トレンドにも対応。</p>
+                    <ul>
+                        <li>最新AI技術の研究</li>
+                        <li>エンタープライズAI</li>
+                        <li>AI倫理と責任</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-block-title">ビジネス活用コース</div>
+                    <p>AIをビジネスに活用するためのスキルを習得。マーケティング、財務、顧客サービスなど様々な分野での活用方法を学ぶ。</p>
+                    <ul>
+                        <li>AIビジネス戦略</li>
+                        <li>データ分析と意思決定</li>
+                        <li>DX推進方法論</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <div class="feature-block-title">キャリアサポート</div>
+                    <p>就職・転職に向けたサポートプログラム。履歴書作成から面接対策、企業紹介まで手厚くサポート。</p>
+                    <ul>
+                        <li>キャリアカウンセリング</li>
+                        <li>採用企業との接続</li>
+                        <li>卒業後サポート</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faculty">
+        <div class="container">
+            <h2 class="section-title">監修</h2>
+            <div class="faculty-profile">
+                <div class="faculty-image">
+                    <img src="https://placehold.co/180x180" alt="監修者">
+                </div>
+                <div class="faculty-info">
+                    <h3>山田 太郎</h3>
+                    <p>AI研究者 / 工学博士</p>
+                    <p>大手IT企業でAI開発責任者を務めた後、独立。AI教育の普及に尽力している。著書に「誰でもわかるAI入門」「ビジネスで活かすAI技術」など多数。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="teleport-platform">
+        <div class="container">
+            <h2 class="section-title">独自のオンライン学習環境 ～Teleportを活用した効率学習～</h2>
+            <div class="teleport-overview">
+                <p>Teleportは先進的なオンライン学習プラットフォームとして開発されたシステムで、セナリ学院の学習体験を強力にサポートしています。</p>
+                <p>個々の学習データを自動解析し、理解度や進捗に応じたカリキュラム・課題を自動的に調整。効率的な学習が可能です。</p>
+                <p>リアルタイムでのレッスン配信・質疑応答にも対応し、全国どこからでも参加できる学習環境を提供します。</p>
+                <p>学習ログを可視化し、受講生同士で成果をシェアできるコミュニケーション機能も備えています。</p>
+            </div>
+
+            <h3 class="subsection-title">Teleportを用いた学習メリット</h3>
+            <div class="teleport-benefits">
+                <div class="teleport-benefit-card">
+                    <div class="benefit-icon">
+                        <img src="https://placehold.co/60x60" alt="最適化されたカリキュラム">
+                    </div>
+                    <h4>最適化されたカリキュラム</h4>
+                    <p>AIを活用した学習設計により、弱点補強や得意分野の伸長が効率的に行えます。</p>
+                </div>
+
+                <div class="teleport-benefit-card">
+                    <div class="benefit-icon">
+                        <img src="https://placehold.co/60x60" alt="インタラクティブな教材">
+                    </div>
+                    <h4>インタラクティブな教材</h4>
+                    <p>テキストだけでなく動画・クイズ・グループディスカッション機能を備え、多彩なアプローチで理解を深めます。</p>
+                </div>
+
+                <div class="teleport-benefit-card">
+                    <div class="benefit-icon">
+                        <img src="https://placehold.co/60x60" alt="時間・場所にとらわれない学習">
+                    </div>
+                    <h4>時間・場所にとらわれない学習</h4>
+                    <p>PCやスマートフォンからアクセス可能で、忙しい社会人も生活スタイルに合わせて学びを続けられます。</p>
+                </div>
+
+                <div class="teleport-benefit-card">
+                    <div class="benefit-icon">
+                        <img src="https://placehold.co/60x60" alt="学習コミュニティとの連携">
+                    </div>
+                    <h4>学習コミュニティとの連携</h4>
+                    <p>Teleport上のチャットやフォーラムで、講師・受講生がリアルタイムに情報交換。孤独感を感じにくい学習環境です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">料金プラン</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">ライトプラン</h3>
+                    <div class="pricing-amount">¥29,800</div>
+                    <ul class="pricing-list">
+                        <li>基礎コース受講権</li>
+                        <li>コミュニティアクセス</li>
+                        <li>週1回の質問対応</li>
+                        <li>3ヶ月間有効</li>
+                    </ul>
+                    <a href="#" class="cta-button">申し込む</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">スタンダードプラン</h3>
+                    <div class="pricing-amount">¥49,800</div>
+                    <ul class="pricing-list">
+                        <li>基礎・応用コース受講権</li>
+                        <li>コミュニティアクセス</li>
+                        <li>24時間質問対応</li>
+                        <li>月2回のメンタリング</li>
+                        <li>6ヶ月間有効</li>
+                    </ul>
+                    <a href="#" class="cta-button">申し込む</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">プロフェッショナルプラン</h3>
+                    <div class="pricing-amount">¥98,000</div>
+                    <ul class="pricing-list">
+                        <li>全コース受講権</li>
+                        <li>コミュニティアクセス</li>
+                        <li>24時間質問対応</li>
+                        <li>週1回の個別メンタリング</li>
+                        <li>キャリアサポート</li>
+                        <li>12ヶ月間有効</li>
+                    </ul>
+                    <a href="#" class="cta-button">申し込む</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">法人プラン</h3>
+                    <div class="pricing-amount">要問合せ</div>
+                    <ul class="pricing-list">
+                        <li>カスタマイズカリキュラム</li>
+                        <li>チーム単位での受講</li>
+                        <li>企業向け特別コンテンツ</li>
+                        <li>導入サポート</li>
+                        <li>社内AI活用コンサルティング</li>
+                    </ul>
+                    <a href="#" class="cta-button">問い合わせる</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">プログラミング経験がなくても受講できますか？</div>
+                    <div class="faq-answer">はい、プログラミング未経験の方でも受講いただけます。基礎コースでは、プログラミングの基本からしっかり学べるカリキュラムをご用意しています。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">どのくらいの学習時間が必要ですか？</div>
+                    <div class="faq-answer">コースにより異なりますが、基本的には週10時間程度の学習時間を確保していただくことをおすすめしています。ご自身のペースで学習を進めることも可能です。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">受講に必要な機材はありますか？</div>
+                    <div class="faq-answer">インターネット接続が可能なパソコン（Windows/Mac/Linux）があれば受講可能です。推奨スペックは受講ガイドでご案内します。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">途中で解約はできますか？</div>
+                    <div class="faq-answer">契約期間内であれば、いつでも解約が可能です。ただし、既にお支払いいただいた分の返金はできませんのでご了承ください。</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">卒業後のサポートはありますか？</div>
+                    <div class="faq-answer">プロフェッショナルプランでは、卒業後も6ヶ月間のキャリアサポートが含まれています。就職・転職に関するアドバイスや企業紹介などを受けることができます。</div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h3>あなたもAIスキルを身につけて、理想の働き方を実現しませんか？</h3>
+                <p>セナリ学院では、あなたの目標に合わせたカリキュラムと手厚いサポートで、確実にスキルアップをお手伝いします。まずは無料カウンセリングからお気軽にどうぞ。</p>
+                <a href="#" class="cta-button">無料カウンセリングに申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2024 セナリ学院 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

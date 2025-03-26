@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コース一覧 - セナリ学院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container container">
+            <div class="logo">セナリ学院</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="courses.html">コース</a></li>
+                    <li><a href="index.html#pricing">料金</a></li>
+                    <li><a href="index.html#faculty">講師紹介</a></li>
+                    <li><a href="#" class="cta-button">無料体験申込</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="course-hero">
+        <div class="container">
+            <h1>コース一覧</h1>
+            <p>あなたの目標に合わせた8つの専門コース</p>
+        </div>
+    </section>
+
+    <section class="course-list">
+        <div class="container">
+            <div class="course-categories">
+                <button class="category-button active" data-category="all">全て</button>
+                <button class="category-button" data-category="writing">ライティング</button>
+                <button class="category-button" data-category="design">デザイン</button>
+                <button class="category-button" data-category="presentation">プレゼン</button>
+                <button class="category-button" data-category="media">映像・音楽</button>
+                <button class="category-button" data-category="education">教育</button>
+                <button class="category-button" data-category="development">開発</button>
+                <button class="category-button" data-category="trend">トレンド</button>
+                <button class="category-button" data-category="teleport">テレポート</button>
+            </div>
+
+            <div class="course-grid">
+                <!-- AIライティング＆リサーチコース -->
+                <div class="course-card" data-category="writing" id="writing">
+                    <div class="course-header">
+                        <div class="course-emoji">🧠</div>
+                        <h2>AIライティング＆リサーチコース</h2>
+                        <p class="course-subtitle">言葉とAIで、世界を読み解き、世界を編集する力を養う。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>インタビュー、エッセイ、ブログ、レポート、論文──。<br>
+                            このコースでは、生成AIとともに「リサーチ・構成・執筆・編集」の全プロセスを学び、
+                            文章を通じて自分の考えや視点を明確に伝えるスキルを身につけます。</p>
+                            <p>プロの編集者や作家、研究者を招いた番組型ワークショップで、
+                            多彩な文体や構成を試しながら、自分らしい言葉を磨いていきましょう。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>幅広い文章スタイル（インタビュー・エッセイ・論文・詩・レポート）に対応</li>
+                                <li>AIでのリサーチや構成アシストを活用し、執筆時間を大幅に短縮＆質向上</li>
+                                <li>ゲストとの対話型ワークショップを通じて、書き手同士がアイデアを交換</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>あなたの言葉は、誰に届き、何を動かすのか？</li>
+                                <li>事実と表現を結びつける上で、どんな編集の選択肢がある？</li>
+                                <li>AIと共作するとき、どんな新しい文章表現が生まれるのか？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">対話エッセイ雑誌</div>
+                                <div class="project-card">取材記事＋AIリサーチ</div>
+                                <div class="project-card">わたしの自分史</div>
+                                <div class="project-card">会社学校案内パンフ</div>
+                                <div class="project-card">雑誌を創刊する</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIデザイン＆クリエイティブコース -->
+                <div class="course-card" data-category="design" id="design">
+                    <div class="course-header">
+                        <div class="course-emoji">🎨</div>
+                        <h2>AIデザイン＆クリエイティブコース</h2>
+                        <p class="course-subtitle">アートとテクノロジーが交わる場所で、新たな視覚表現を探る。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIとクリエイティブの融合で、新しいデザインの可能性を探ります。<br>
+                            このコースでは、AIを活用したデザイン制作、アニメーション、イラストレーション、
+                            ブランディングなど、多様なクリエイティブ表現を学びます。</p>
+                            <p>プロのデザイナーやアーティストを招いたワークショップで、
+                            最新のAIツールを活用しながら、独自のクリエイティブスタイルを確立していきましょう。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したデザイン制作とアニメーション制作</li>
+                                <li>ブランディングとビジュアルアイデンティティの構築</li>
+                                <li>クリエイティブプロセスの効率化と品質向上</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIと人間のクリエイティビティは、どのように融合できるのか？</li>
+                                <li>デザインにおけるAIの役割と限界は何か？</li>
+                                <li>新しいデザインツールは、どのようにクリエイティブ表現を変えるのか？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">ブランドデザイン</div>
+                                <div class="project-card">アニメーション制作</div>
+                                <div class="project-card">イラストレーション</div>
+                                <div class="project-card">UI/UXデザイン</div>
+                                <div class="project-card">デジタルアート</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI企画書＆プレゼンテーションコース -->
+                <div class="course-card" data-category="presentation" id="presentation">
+                    <div class="course-header">
+                        <div class="course-emoji">📊</div>
+                        <h2>AI企画書＆プレゼンテーションコース</h2>
+                        <p class="course-subtitle">データとストーリーを組み合わせ、説得力のあるプレゼンを実現。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用して、効果的な企画書作成とプレゼンテーションを学びます。<br>
+                            このコースでは、データ分析、ストーリーテリング、ビジュアル表現を組み合わせ、
+                            説得力のあるプレゼンテーションスキルを身につけます。</p>
+                            <p>実践的なワークショップで、実際のビジネスシーンを想定した
+                            プレゼンテーションの作成と発表を行います。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したデータ分析と可視化</li>
+                                <li>効果的なストーリーテリングと構成</li>
+                                <li>プレゼンテーションツールの活用</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>データとストーリーをどのように組み合わせるのか？</li>
+                                <li>AIは、プレゼンテーションの質をどのように向上させるのか？</li>
+                                <li>説得力のあるプレゼンテーションとは何か？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">ビジネス企画書</div>
+                                <div class="project-card">データ可視化</div>
+                                <div class="project-card">プレゼン資料</div>
+                                <div class="project-card">プロジェクト提案</div>
+                                <div class="project-card">ピッチデッキ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI映像＆音楽制作コース -->
+                <div class="course-card" data-category="media" id="media">
+                    <div class="course-header">
+                        <div class="course-emoji">🎬</div>
+                        <h2>AI映像＆音楽制作コース</h2>
+                        <p class="course-subtitle">AIとクリエイティビティで、新しい映像表現を創造する。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用した映像制作と音楽制作を学びます。<br>
+                            このコースでは、動画編集、アニメーション、サウンドデザインなど、
+                            多様なメディア表現を習得します。</p>
+                            <p>プロのクリエイターを招いたワークショップで、
+                            最新のAIツールを活用しながら、独自の表現方法を探求します。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用した映像編集とアニメーション制作</li>
+                                <li>サウンドデザインと音楽制作</li>
+                                <li>クリエイティブプロセスの効率化</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIは、映像制作にどのような新しい可能性をもたらすのか？</li>
+                                <li>クリエイティビティとAIのバランスはどう取るべきか？</li>
+                                <li>新しいメディア表現とは何か？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">ショートムービー</div>
+                                <div class="project-card">アニメーション</div>
+                                <div class="project-card">音楽制作</div>
+                                <div class="project-card">プロモーションビデオ</div>
+                                <div class="project-card">デジタルアート</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI教育＆研修コース -->
+                <div class="course-card" data-category="education" id="education">
+                    <div class="course-header">
+                        <div class="course-emoji">📚</div>
+                        <h2>AI教育＆研修コース</h2>
+                        <p class="course-subtitle">AIを活用した効果的な教育プログラムを設計する。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用した教育プログラムの設計と実践を学びます。<br>
+                            このコースでは、カリキュラム開発、学習分析、教育効果の測定など、
+                            教育におけるAIの活用方法を習得します。</p>
+                            <p>教育専門家を招いたワークショップで、
+                            実際の教育現場を想定したプログラムの作成と評価を行います。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したカリキュラム設計</li>
+                                <li>学習分析と教育効果の測定</li>
+                                <li>教育プログラムの効率化</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIは、教育にどのような新しい可能性をもたらすのか？</li>
+                                <li>効果的な教育プログラムとは何か？</li>
+                                <li>学習者のニーズに合わせた教育とは？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">カリキュラム設計</div>
+                                <div class="project-card">学習分析</div>
+                                <div class="project-card">教育効果測定</div>
+                                <div class="project-card">教育プログラム</div>
+                                <div class="project-card">研修計画</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIアプリ＆サービス開発コース -->
+                <div class="course-card" data-category="development" id="development">
+                    <div class="course-header">
+                        <div class="course-emoji">💻</div>
+                        <h2>AIアプリ＆サービス開発コース</h2>
+                        <p class="course-subtitle">AIを活用したアプリケーションとサービスの開発を学ぶ。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用したアプリケーションとサービスの開発を学びます。<br>
+                            このコースでは、プログラミング、UI/UXデザイン、プロジェクト管理など、
+                            開発に必要なスキルを習得します。</p>
+                            <p>開発者を招いたワークショップで、
+                            実際のプロジェクトを想定したアプリケーションの設計と実装を行います。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したアプリケーション開発</li>
+                                <li>UI/UXデザインとプロジェクト管理</li>
+                                <li>開発プロセスの効率化</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIは、アプリケーション開発にどのような新しい可能性をもたらすのか？</li>
+                                <li>効果的なUI/UXデザインとは何か？</li>
+                                <li>プロジェクト管理の効率化とは？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">アプリ開発</div>
+                                <div class="project-card">UI/UXデザイン</div>
+                                <div class="project-card">プロジェクト管理</div>
+                                <div class="project-card">サービス設計</div>
+                                <div class="project-card">プロトタイプ作成</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIトレンド＆業界動向リサーチコース -->
+                <div class="course-card" data-category="trend" id="trend">
+                    <div class="course-header">
+                        <div class="course-emoji">📈</div>
+                        <h2>AIトレンド＆業界動向リサーチコース</h2>
+                        <p class="course-subtitle">AIを活用して、業界のトレンドと動向を分析する。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用した業界のトレンドと動向の分析を学びます。<br>
+                            このコースでは、データ分析、市場調査、競合分析など、
+                            リサーチに必要なスキルを習得します。</p>
+                            <p>リサーチャーを招いたワークショップで、
+                            実際の業界を想定したトレンド分析とレポート作成を行います。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したデータ分析と市場調査</li>
+                                <li>競合分析とトレンド予測</li>
+                                <li>リサーチプロセスの効率化</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIは、業界分析にどのような新しい可能性をもたらすのか？</li>
+                                <li>効果的な市場調査とは何か？</li>
+                                <li>トレンド予測の精度をどのように向上させるのか？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">市場調査</div>
+                                <div class="project-card">競合分析</div>
+                                <div class="project-card">トレンド予測</div>
+                                <div class="project-card">レポート作成</div>
+                                <div class="project-card">データ可視化</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- テレポート開発参加コース -->
+                <div class="course-card" data-category="teleport" id="teleport">
+                    <div class="course-header">
+                        <div class="course-emoji">🚀</div>
+                        <h2>テレポート開発参加コース</h2>
+                        <p class="course-subtitle">AIを活用したプラットフォーム開発に参加する。</p>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-description">
+                            <p>AIを活用したプラットフォーム開発に参加し、実践的なスキルを学びます。<br>
+                            このコースでは、開発プロセス、チームワーク、プロジェクト管理など、
+                            実践的な開発スキルを習得します。</p>
+                            <p>開発者を招いたワークショップで、
+                            実際のプロジェクトに参加しながら、開発スキルを磨きます。</p>
+                        </div>
+
+                        <div class="course-features">
+                            <h3>🌱 特徴</h3>
+                            <ul>
+                                <li>AIを活用したプラットフォーム開発</li>
+                                <li>チームワークとプロジェクト管理</li>
+                                <li>実践的な開発スキルの習得</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-questions">
+                            <h3>❓ 問い</h3>
+                            <ul>
+                                <li>AIは、プラットフォーム開発にどのような新しい可能性をもたらすのか？</li>
+                                <li>効果的なチームワークとは何か？</li>
+                                <li>プロジェクト管理の効率化とは？</li>
+                            </ul>
+                        </div>
+
+                        <div class="course-projects">
+                            <h3>🎓 作品制作の例</h3>
+                            <div class="project-grid">
+                                <div class="project-card">プラットフォーム開発</div>
+                                <div class="project-card">チームワーク</div>
+                                <div class="project-card">プロジェクト管理</div>
+                                <div class="project-card">機能実装</div>
+                                <div class="project-card">テストとデバッグ</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="course-cta">
+        <div class="container">
+            <h2>あなたも新しい可能性に挑戦してみませんか？</h2>
+            <p>まずは無料カウンセリングで、あなたに最適なコースをご提案します。</p>
+            <a href="#" class="cta-button">無料カウンセリングに申し込む</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2024 セナリ学院 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
