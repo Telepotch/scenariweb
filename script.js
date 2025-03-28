@@ -7,155 +7,258 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.slider-dot');
     const pageCount = document.querySelector('.slider-page-count');
     
-    // 最初の3枚と最後の3枚をコピーしてループ用に追加
-    const firstCards = Array.from(cards).slice(0, 3);
-    const lastCards = Array.from(cards).slice(-3);
+    // スマートフォンかどうかを判定
+    const isMobile = window.innerWidth <= 768;
     
-    lastCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        slider.insertBefore(clone, slider.firstChild);
-    });
-    
-    firstCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        slider.appendChild(clone);
-    });
-    
-    let currentIndex = 3; // 最初の3枚分オフセット
-    const totalSlides = cards.length;
-    let isTransitioning = false;
-    
-    // スライダーの更新関数
-    const updateSlider = (withTransition = true) => {
-        if (withTransition) {
-            slider.style.transition = 'transform 0.5s ease';
-        } else {
-            slider.style.transition = 'none';
-        }
+    if (isMobile) {
+        // スマートフォン用のスライダー実装
+        let currentIndex = 0;
+        const totalSlides = cards.length;
+        let autoPlayInterval;
         
-        // スライダーの位置を更新
-        const slideWidth = 100 / 3; // 3枚表示
-        const offset = -currentIndex * slideWidth;
-        slider.style.transform = `translateX(${offset}%)`;
+        // スライドの更新関数
+        const updateSlider = () => {
+            // ドットの状態を更新
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+            
+            // ページカウンターを更新
+            pageCount.textContent = `${currentIndex + 1} / ${totalSlides}`;
+            
+            // スライドを表示
+            const cardWidth = cards[0].offsetWidth;
+            const gap = 12; // gap between cards
+            const scrollPosition = currentIndex * (cardWidth + gap);
+            slider.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        };
+
+        // 自動再生の開始
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }, 1000); // 1秒ごとにスライド
+        };
+
+        // 自動再生の停止
+        const stopAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+        };
         
-        // ドットの状態を更新
-        const actualIndex = ((currentIndex - 3 + totalSlides) % totalSlides);
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === actualIndex);
+        // スクロールイベントの監視（スクロール終了時に実行）
+        let scrollTimeout;
+        slider.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            stopAutoPlay(); // スクロール中は自動再生を停止
+            
+            scrollTimeout = setTimeout(() => {
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 12;
+                const scrollPosition = slider.scrollLeft;
+                currentIndex = Math.round(scrollPosition / (cardWidth + gap));
+                updateSlider();
+                startAutoPlay(); // スクロール終了後に自動再生を再開
+            }, 100);
         });
         
-        // ページカウンターを更新
-        pageCount.textContent = `${actualIndex + 1} / ${totalSlides}`;
-    };
-    
-    // 初期位置を設定
-    updateSlider(false);
-    
-    // トランジション終了時の処理
-    slider.addEventListener('transitionend', () => {
-        isTransitioning = false;
-        
-        // 最後のクローンまで行ったら最初に戻る
-        if (currentIndex >= totalSlides + 3) {
-            currentIndex = 3;
-            updateSlider(false);
-        }
-        // 最初のクローンまで行ったら最後に戻る
-        else if (currentIndex <= 2) {
-            currentIndex = totalSlides + 2;
-            updateSlider(false);
-        }
-    });
-    
-    // 次へボタンのクリックイベント
-    nextBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        updateSlider();
-    });
-    
-    // 前へボタンのクリックイベント
-    prevBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex--;
-        updateSlider();
-    });
-    
-    // ドットのクリックイベント
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            if (isTransitioning) return;
-            isTransitioning = true;
-            currentIndex = index + 3;
-            updateSlider();
+        // タッチイベントの監視
+        slider.addEventListener('touchstart', () => {
+            stopAutoPlay();
         });
-    });
-    
-    // タッチスワイプ対応
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        slider.style.transition = 'none';
-    });
-    
-    slider.addEventListener('touchmove', (e) => {
-        if (isTransitioning) return;
-        touchEndX = e.touches[0].clientX;
-        const difference = touchStartX - touchEndX;
-        const slideWidth = 100 / 3;
-        const offset = -currentIndex * slideWidth - (difference / slider.offsetWidth * 100);
-        slider.style.transform = `translateX(${offset}%)`;
-    });
-    
-    slider.addEventListener('touchend', () => {
-        if (isTransitioning) return;
-        const difference = touchStartX - touchEndX;
-        if (Math.abs(difference) > 50) { // 50px以上のスワイプで反応
-            isTransitioning = true;
-            if (difference > 0) {
-                currentIndex++;
-            } else {
+        
+        slider.addEventListener('touchend', () => {
+            setTimeout(startAutoPlay, 1000);
+        });
+        
+        // 前へボタンのクリックイベント
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            if (currentIndex > 0) {
                 currentIndex--;
+                updateSlider();
             }
-            updateSlider();
-        } else {
-            updateSlider(); // 元の位置に戻る
-        }
-    });
-    
-    // 自動再生
-    const autoPlayDelay = 5000; // 5秒ごとにスライド
-    let autoPlayInterval = setInterval(() => {
-        if (!isTransitioning) {
+            setTimeout(startAutoPlay, 1000);
+        });
+        
+        // 次へボタンのクリックイベント
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateSlider();
+            }
+            setTimeout(startAutoPlay, 1000);
+        });
+        
+        // ドットのクリックイベント
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoPlay();
+                currentIndex = index;
+                updateSlider();
+                setTimeout(startAutoPlay, 1000);
+            });
+        });
+        
+        // 初期状態の設定と自動再生の開始
+        updateSlider();
+        startAutoPlay();
+        
+    } else {
+        // 最初の3枚と最後の3枚をコピーしてループ用に追加
+        const firstCards = Array.from(cards).slice(0, 3);
+        const lastCards = Array.from(cards).slice(-3);
+        
+        lastCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.insertBefore(clone, slider.firstChild);
+        });
+        
+        firstCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+        
+        let currentIndex = 3; // 最初の3枚分オフセット
+        const totalSlides = cards.length;
+        let isTransitioning = false;
+        
+        // スライダーの更新関数
+        const updateSlider = (withTransition = true) => {
+            if (withTransition) {
+                slider.style.transition = 'transform 0.5s ease';
+            } else {
+                slider.style.transition = 'none';
+            }
+            
+            // スライダーの位置を更新
+            const slideWidth = 100 / 3; // 3枚表示
+            const offset = -currentIndex * slideWidth;
+            slider.style.transform = `translateX(${offset}%)`;
+            
+            // ドットの状態を更新
+            const actualIndex = ((currentIndex - 3 + totalSlides) % totalSlides);
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === actualIndex);
+            });
+            
+            // ページカウンターを更新
+            pageCount.textContent = `${actualIndex + 1} / ${totalSlides}`;
+        };
+        
+        // 初期位置を設定
+        updateSlider(false);
+        
+        // トランジション終了時の処理
+        slider.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            
+            // 最後のクローンまで行ったら最初に戻る
+            if (currentIndex >= totalSlides + 3) {
+                currentIndex = 3;
+                updateSlider(false);
+            }
+            // 最初のクローンまで行ったら最後に戻る
+            else if (currentIndex <= 2) {
+                currentIndex = totalSlides + 2;
+                updateSlider(false);
+            }
+        });
+        
+        // 次へボタンのクリックイベント
+        nextBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
             isTransitioning = true;
             currentIndex++;
             updateSlider();
-        }
-    }, autoPlayDelay);
-    
-    // マウスホバー時に自動再生を一時停止
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(autoPlayInterval);
-    });
-    
-    slider.addEventListener('mouseleave', () => {
-        autoPlayInterval = setInterval(() => {
+        });
+        
+        // 前へボタンのクリックイベント
+        prevBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex--;
+            updateSlider();
+        });
+        
+        // ドットのクリックイベント
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                currentIndex = index + 3;
+                updateSlider();
+            });
+        });
+        
+        // タッチスワイプ対応
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            slider.style.transition = 'none';
+        });
+        
+        slider.addEventListener('touchmove', (e) => {
+            if (isTransitioning) return;
+            touchEndX = e.touches[0].clientX;
+            const difference = touchStartX - touchEndX;
+            const slideWidth = 100 / 3;
+            const offset = -currentIndex * slideWidth - (difference / slider.offsetWidth * 100);
+            slider.style.transform = `translateX(${offset}%)`;
+        });
+        
+        slider.addEventListener('touchend', () => {
+            if (isTransitioning) return;
+            const difference = touchStartX - touchEndX;
+            if (Math.abs(difference) > 50) { // 50px以上のスワイプで反応
+                isTransitioning = true;
+                if (difference > 0) {
+                    currentIndex++;
+                } else {
+                    currentIndex--;
+                }
+                updateSlider();
+            } else {
+                updateSlider(); // 元の位置に戻る
+            }
+        });
+        
+        // 自動再生
+        const autoPlayDelay = 5000; // 5秒ごとにスライド
+        let autoPlayInterval = setInterval(() => {
             if (!isTransitioning) {
                 isTransitioning = true;
                 currentIndex++;
                 updateSlider();
             }
         }, autoPlayDelay);
-    });
-    
-    // レスポンシブ対応
-    window.addEventListener('resize', () => {
-        updateSlider(false);
-    });
+        
+        // マウスホバー時に自動再生を一時停止
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                if (!isTransitioning) {
+                    isTransitioning = true;
+                    currentIndex++;
+                    updateSlider();
+                }
+            }, autoPlayDelay);
+        });
+        
+        // レスポンシブ対応
+        window.addEventListener('resize', () => {
+            updateSlider(false);
+        });
+    }
 });
 
 // FAQ Accordion
@@ -498,119 +601,4 @@ dots.forEach((dot, index) => {
 });
 
 // Initialize slider
-updateSlider();
-
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.results-slider');
-    const dots = document.querySelectorAll('.slider-dot');
-    const prevButton = document.querySelector('.slider-button.prev');
-    const nextButton = document.querySelector('.slider-button.next');
-    const pageCount = document.querySelector('.slider-page-count');
-    
-    let currentSlide = 0;
-    const slideCount = document.querySelectorAll('.result-card').length;
-    const slidesPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 1200 ? 2 : 3;
-    const maxSlides = slideCount - slidesPerView;
-    
-    // スライドの移動関数
-    function moveSlide(index) {
-        currentSlide = Math.max(0, Math.min(index, maxSlides));
-        const offset = -currentSlide * (100 / slidesPerView);
-        slider.style.transform = `translateX(${offset}%)`;
-        updateDots();
-        updatePageCount();
-    }
-    
-    // ドットの更新
-    function updateDots() {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    // ページカウントの更新
-    function updatePageCount() {
-        pageCount.textContent = `${currentSlide + 1} / ${maxSlides + 1}`;
-    }
-    
-    // 自動再生の設定
-    let autoplayInterval;
-    function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-            if (currentSlide < maxSlides) {
-                moveSlide(currentSlide + 1);
-            } else {
-                moveSlide(0);
-            }
-        }, 1000); // 1秒ごとにスライド
-    }
-    
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-    }
-    
-    // スライダーにホバーしたら自動再生を停止
-    slider.addEventListener('mouseenter', stopAutoplay);
-    slider.addEventListener('mouseleave', startAutoplay);
-    
-    // タッチデバイスでの自動再生
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    slider.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-    });
-    
-    slider.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].clientX;
-        handleSwipe();
-    });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0 && currentSlide < maxSlides) {
-                moveSlide(currentSlide + 1);
-            } else if (diff < 0 && currentSlide > 0) {
-                moveSlide(currentSlide - 1);
-            }
-        }
-    }
-    
-    // ボタンクリックイベント
-    prevButton.addEventListener('click', () => {
-        moveSlide(currentSlide - 1);
-        stopAutoplay();
-        startAutoplay();
-    });
-    
-    nextButton.addEventListener('click', () => {
-        moveSlide(currentSlide + 1);
-        stopAutoplay();
-        startAutoplay();
-    });
-    
-    // ドットクリックイベント
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            moveSlide(index);
-            stopAutoplay();
-            startAutoplay();
-        });
-    });
-    
-    // レスポンシブ対応
-    window.addEventListener('resize', () => {
-        const newSlidesPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 1200 ? 2 : 3;
-        if (newSlidesPerView !== slidesPerView) {
-            moveSlide(0);
-        }
-    });
-    
-    // 初期化
-    updateDots();
-    updatePageCount();
-    startAutoplay();
-}); 
+updateSlider(); 
