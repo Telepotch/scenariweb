@@ -498,4 +498,119 @@ dots.forEach((dot, index) => {
 });
 
 // Initialize slider
-updateSlider(); 
+updateSlider();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.results-slider');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevButton = document.querySelector('.slider-button.prev');
+    const nextButton = document.querySelector('.slider-button.next');
+    const pageCount = document.querySelector('.slider-page-count');
+    
+    let currentSlide = 0;
+    const slideCount = document.querySelectorAll('.result-card').length;
+    const slidesPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 1200 ? 2 : 3;
+    const maxSlides = slideCount - slidesPerView;
+    
+    // スライドの移動関数
+    function moveSlide(index) {
+        currentSlide = Math.max(0, Math.min(index, maxSlides));
+        const offset = -currentSlide * (100 / slidesPerView);
+        slider.style.transform = `translateX(${offset}%)`;
+        updateDots();
+        updatePageCount();
+    }
+    
+    // ドットの更新
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    // ページカウントの更新
+    function updatePageCount() {
+        pageCount.textContent = `${currentSlide + 1} / ${maxSlides + 1}`;
+    }
+    
+    // 自動再生の設定
+    let autoplayInterval;
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            if (currentSlide < maxSlides) {
+                moveSlide(currentSlide + 1);
+            } else {
+                moveSlide(0);
+            }
+        }, 1000); // 1秒ごとにスライド
+    }
+    
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+    
+    // スライダーにホバーしたら自動再生を停止
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    
+    // タッチデバイスでの自動再生
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0 && currentSlide < maxSlides) {
+                moveSlide(currentSlide + 1);
+            } else if (diff < 0 && currentSlide > 0) {
+                moveSlide(currentSlide - 1);
+            }
+        }
+    }
+    
+    // ボタンクリックイベント
+    prevButton.addEventListener('click', () => {
+        moveSlide(currentSlide - 1);
+        stopAutoplay();
+        startAutoplay();
+    });
+    
+    nextButton.addEventListener('click', () => {
+        moveSlide(currentSlide + 1);
+        stopAutoplay();
+        startAutoplay();
+    });
+    
+    // ドットクリックイベント
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            moveSlide(index);
+            stopAutoplay();
+            startAutoplay();
+        });
+    });
+    
+    // レスポンシブ対応
+    window.addEventListener('resize', () => {
+        const newSlidesPerView = window.innerWidth <= 768 ? 1 : window.innerWidth <= 1200 ? 2 : 3;
+        if (newSlidesPerView !== slidesPerView) {
+            moveSlide(0);
+        }
+    });
+    
+    // 初期化
+    updateDots();
+    updatePageCount();
+    startAutoplay();
+}); 
