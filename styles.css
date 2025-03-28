@@ -478,6 +478,7 @@ header {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    align-items: stretch;
 }
 
 .benefit-card {
@@ -487,6 +488,9 @@ header {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .benefit-card:hover {
@@ -549,8 +553,7 @@ header {
 
 .benefit-image-card {
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9のアスペクト比 */
+    height: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -559,10 +562,11 @@ header {
 
 .benefit-image-card .video-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 170%;
+    height: 170%;
 }
 
 .benefit-image-card iframe {
@@ -570,23 +574,6 @@ header {
     height: 100%;
     border: none;
     border-radius: 12px;
-}
-
-@media (max-width: 768px) {
-    .benefit-image-card {
-        margin: 1rem 0;
-    }
-}
-
-.benefit-image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.benefit-image-card:hover img {
-    transform: scale(1.05);
 }
 
 @media (max-width: 992px) {
@@ -597,7 +584,7 @@ header {
     }
 
     .benefit-image-card {
-        height: 300px;
+        height: 400px;
     }
 }
 
@@ -611,8 +598,67 @@ header {
     }
 
     .benefit-image-card {
-        height: 200px;
+        height: 300px;
     }
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-light);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    opacity: 1;
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+.slider-page-count {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    opacity: 0.7;
+    margin: 0 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.slider-button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--white);
+    color: var(--text-light);
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.slider-button:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
 }
 
 /* Courses Section */
@@ -1363,25 +1409,43 @@ header {
 
 /* CTA Section */
 .cta-section {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 6rem 2rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-radius: 0;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
     position: relative;
+    padding: 6rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
     overflow: hidden;
 }
 
+.cta-section .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.cta-section .video-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.5);
+}
+
 .cta-section::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 .cta-section > * {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .cta-section h3 {
