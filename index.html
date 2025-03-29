@@ -10,21 +10,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-container container">
-            <div class="logo">セナリ学院</div>
-            <nav>
-                <ul class="nav-menu">
-                    <li class="header-buttons">
-                        <div class="nav-buttons">
-                            <a href="https://scenari.teleport.jp/signin" class="login-button">ログイン</a>
-                            <a href="#contact" class="cta-button">無料で体験する</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- ヘッダー -->
+    <div id="header-container"></div>
+
+    <script>
+        // ヘッダーを読み込む関数
+        async function loadHeader() {
+            try {
+                const response = await fetch('components/header.html');
+                const html = await response.text();
+                document.getElementById('header-container').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading header:', error);
+            }
+        }
+
+        // ページ読み込み時にヘッダーを読み込む
+        document.addEventListener('DOMContentLoaded', loadHeader);
+    </script>
 
     <section class="hero">
         <div class="hero-video-container">
@@ -412,11 +415,11 @@
     </section>
 
     <section class="cta-section">
-        <div class="video-container">
-            <iframe src="https://player.vimeo.com/video/1070225961?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        </div>
         <div class="container">
             <h3>セナリ学院を体験してみませんか？</h3>
+            <p>実はこのwebページも生成AIで素人が1日で作りました。<br>
+             簡単なページであれば10分できますから、すごい時代ですよね。<br>
+             百聞は一見にしかず。多種多様な皆さんと一緒に学べるのが楽しみです。</p>
             <a href="https://scenari.teleport.jp/signup" class="cta-button">30日間無料体験を始める</a>
         </div>
     </section>
@@ -743,19 +746,25 @@
             </div>
         </div>
     </section>
-    <section class="cta-section">
-        <div class="container">
-            <h3>セナリ学院を体験してみませんか？</h3>
-            <p>実はこのwebページも生成AIで素人が1日で作りました。<br>
-             簡単なページであれば10分できますから、すごい時代ですよね。<br>
-             百聞は一見にしかず。多種多様な皆さんと一緒に学べるのが楽しみです。</p>
-            <a href="https://scenari.teleport.jp/signup" class="cta-button">30日間無料体験を始める</a>
-        </div>
-    </section>
 
-    <div id="cta-container"></div>
+    <!-- フッター -->
     <div id="footer-container"></div>
 
+    <script>
+        // フッターを読み込む関数
+        async function loadFooter() {
+            try {
+                const response = await fetch('components/footer.html');
+                const html = await response.text();
+                document.getElementById('footer-container').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading footer:', error);
+            }
+        }
+
+        // ページ読み込み時にフッターを読み込む
+        document.addEventListener('DOMContentLoaded', loadFooter);
+    </script>
     <script src="script.js"></script>
 </body>
 </html> 
