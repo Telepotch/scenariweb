@@ -601,4 +601,21 @@ dots.forEach((dot, index) => {
 });
 
 // Initialize slider
-updateSlider(); 
+updateSlider();
+
+// コンポーネントを読み込む関数
+async function loadComponent(elementId, componentPath) {
+    try {
+        const response = await fetch(componentPath);
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+    } catch (error) {
+        console.error('Error loading component:', error);
+    }
+}
+
+// ページ読み込み時にコンポーネントを読み込む
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('cta-container', 'components/cta.html');
+    loadComponent('footer-container', 'components/footer.html');
+}); 
